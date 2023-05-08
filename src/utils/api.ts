@@ -51,6 +51,7 @@ export type Country = {
   area: number;
   population: number;
   flags: Flag;
+  borders: string[];
 };
 
 export type Region =
@@ -61,14 +62,9 @@ export type Region =
   | 'oceania'
   | 'none';
 
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 const baseUrl = 'https://restcountries.com/v3.1';
 
 export const getAllCountries = async (): Promise<Country[]> => {
-  await sleep(2000);
   const response = await fetch(`${baseUrl}/all`, {
     method: 'GET',
   });
@@ -76,7 +72,6 @@ export const getAllCountries = async (): Promise<Country[]> => {
 };
 
 export const getCountryByCode = async (code: string): Promise<Country[]> => {
-  await sleep(2000);
   const response = await fetch(`${baseUrl}/alpha/${code}`, {
     method: 'GET',
   });

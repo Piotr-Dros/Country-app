@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/country/:cca2',
+        path: '/country/:code',
         element: <Country />,
       },
     ],
@@ -63,8 +63,16 @@ const getTheme = (mode: PaletteMode) => {
         fontSize: 14,
         fontWeight: 600,
       },
+      subtitle2: {
+        fontSize: 13,
+        fontWeight: 300,
+      },
       body1: {
         fontSize: 12,
+        fontWeight: 300,
+      },
+      body2: {
+        fontSize: 9,
         fontWeight: 300,
       },
     },
