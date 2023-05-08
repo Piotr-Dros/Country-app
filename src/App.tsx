@@ -15,13 +15,19 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 // routes
 import Root from './routes/Root';
 import ErrorPage from './routes/ErrorPage';
+import Home from './routes/Home';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
     errorElement: <ErrorPage />,
-    children: [],
+    children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
+    ],
   },
 ]);
 
