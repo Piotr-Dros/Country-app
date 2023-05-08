@@ -27,10 +27,48 @@ const router = createBrowserRouter([
 
 const getTheme = (mode: PaletteMode) => {
   return createTheme({
-    typography: {},
+    typography: {
+      h1: {
+        fontSize: 24,
+        fontWeight: 800,
+      },
+      h2: {
+        fontSize: 20,
+        fontWeight: 800,
+      },
+      h3: {
+        fontSize: 18,
+        fontWeight: 600,
+      },
+    },
     palette: {
       mode,
-      ...(mode === 'light' ? {} : {}),
+      ...(mode === 'light'
+        ? {
+            primary: {
+              main: '#e7c6ff',
+              dark: '#c8b6ff',
+              light: '#ffd6ff',
+              contrastText: '#fff',
+            },
+            text: {
+              primary: '#000',
+            },
+          }
+        : {
+            primary: {
+              main: '#e7c6ff',
+              dark: '#c8b6ff',
+              light: '#ffd6ff',
+              contrastText: '#fff',
+            },
+            text: {
+              primary: '#fff',
+            },
+            background: {
+              default: 'hsl(207, 26%, 17%)',
+            },
+          }),
     },
   });
 };
