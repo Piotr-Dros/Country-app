@@ -74,3 +74,11 @@ export const getAllCountries = async (): Promise<Country[]> => {
   });
   return response.json();
 };
+
+export const getCountryByCode = async (code: string): Promise<Country[]> => {
+  await sleep(2000);
+  const response = await fetch(`${baseUrl}/alpha/${code}`, {
+    method: 'GET',
+  });
+  return response.json();
+};

@@ -24,21 +24,37 @@ const countryCardInfos: CountryCardInfo[] = [
 
 const CountryCard = ({ country }: { country: Country }) => {
   return (
-    <Card>
+    <Card
+      sx={{
+        bgcolor: 'background.default',
+        height: '320px',
+        cursor: 'pointer',
+        transition: 'scale 250ms',
+        '&:hover': {
+          scale: '1.05',
+        },
+      }}
+    >
       <CardMedia
         component="img"
         image={country.flags.png}
         alt={country.flags.alt}
+        height={'45%'}
       />
       <CardContent>
-        <Typography variant="h4">{country.name.common}</Typography>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <Typography variant="h4" sx={{ mb: 2 }}>
+          {country.name.common}
+        </Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           {countryCardInfos.map((countryCardInfo) => (
-            <Box key={countryCardInfo.label}>
-              <Typography variant="subtitle1">
-                {countryCardInfo.label}
+            <Box
+              key={countryCardInfo.label}
+              sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+            >
+              <Typography variant="subtitle1" color="text.secondary">
+                {countryCardInfo.label}:
               </Typography>
-              <Typography variant="body1">
+              <Typography variant="body1" color="text.secondary">
                 {countryCardInfo.render(country)}
               </Typography>
             </Box>

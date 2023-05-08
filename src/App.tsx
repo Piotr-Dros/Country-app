@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 // Material UI
 import {
   CssBaseline,
+  GlobalStyles,
   PaletteMode,
   ThemeProvider,
   createTheme,
@@ -16,6 +17,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Root from './routes/Root';
 import ErrorPage from './routes/ErrorPage';
 import Home from './routes/Home';
+import Country from './routes/Country';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
       },
+      {
+        path: '/country/:cca2',
+        element: <Country />,
+      },
     ],
   },
 ]);
@@ -35,24 +41,31 @@ const getTheme = (mode: PaletteMode) => {
   return createTheme({
     typography: {
       h1: {
-        fontSize: 24,
+        fontSize: 30,
         fontWeight: 800,
       },
       h2: {
-        fontSize: 20,
+        fontSize: 26,
         fontWeight: 800,
       },
       h3: {
-        fontSize: 18,
+        fontSize: 23,
         fontWeight: 800,
+        '@media (max-width: 600px)': {
+          fontSize: 16,
+        },
       },
       h4: {
-        fontSize: 16,
+        fontSize: 20,
         fontWeight: 600,
       },
       subtitle1: {
         fontSize: 14,
         fontWeight: 600,
+      },
+      body1: {
+        fontSize: 12,
+        fontWeight: 300,
       },
     },
     palette: {
@@ -67,6 +80,7 @@ const getTheme = (mode: PaletteMode) => {
             },
             text: {
               primary: '#000',
+              secondary: '#444',
             },
           }
         : {
@@ -94,6 +108,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <GlobalStyles styles={{ a: { textDecoration: 'none' } }} />
       <RouterProvider router={router} />
     </ThemeProvider>
   );

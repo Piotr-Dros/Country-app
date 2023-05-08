@@ -11,7 +11,7 @@ const Navigation = () => {
     <AppBar
       position="sticky"
       sx={{
-        mb: 2,
+        mb: 4,
         bgcolor: 'background.default',
         boxShadow: 2,
       }}
