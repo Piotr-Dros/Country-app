@@ -44,6 +44,14 @@ const getTheme = (mode: PaletteMode) => {
       },
       h3: {
         fontSize: 18,
+        fontWeight: 800,
+      },
+      h4: {
+        fontSize: 16,
+        fontWeight: 600,
+      },
+      subtitle1: {
+        fontSize: 14,
         fontWeight: 600,
       },
     },
