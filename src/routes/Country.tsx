@@ -4,8 +4,6 @@ import { Country, getCountryByCode } from '../utils/api';
 import {
   Box,
   Button,
-  Card,
-  CardMedia,
   CircularProgress,
   Container,
   Typography,
@@ -32,7 +30,10 @@ const Country = () => {
       {!isLoading ? (
         <>
           <Link to="..">
-            <Button variant="contained" sx={{ bgcolor: 'primary.dark' }}>
+            <Button
+              variant="contained"
+              sx={{ bgcolor: 'primary.dark', mb: 5, objectFit: 'cover' }}
+            >
               <KeyboardBackspaceIcon />
               <Typography>Back</Typography>
             </Button>
@@ -41,11 +42,24 @@ const Country = () => {
             sx={{
               display: 'flex',
               flexDirection: { xs: 'column', sm: 'row' },
+              alignItems: { xs: 'center' },
             }}
           >
-            <Card sx={{ minWidth: '200px' }}>
-              <CardMedia image={country?.flags.png} />
-            </Card>
+            <Box
+              component="img"
+              src={country?.flags.png}
+              alt={country?.flags.alt}
+              sx={{
+                width: '100%',
+                maxWidth: '300px',
+                aspectRatio: '3 / 2',
+                borderRadius: 1,
+                overflow: 'hidden',
+              }}
+            />
+          </Box>
+          <Box>
+            <Typography variant="h2">{country?.name.common}</Typography>
           </Box>
         </>
       ) : (
