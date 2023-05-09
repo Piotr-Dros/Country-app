@@ -54,13 +54,7 @@ export type Country = {
   borders: string[];
 };
 
-export type Region =
-  | 'africa'
-  | 'america'
-  | 'asia'
-  | 'europe'
-  | 'oceania'
-  | 'none';
+export type Region = 'africa' | 'america' | 'asia' | 'europe' | 'oceania' | '';
 
 const baseUrl = 'https://restcountries.com/v3.1';
 
